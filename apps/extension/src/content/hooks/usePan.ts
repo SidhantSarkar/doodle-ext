@@ -44,6 +44,8 @@ export function usePan( siteHash: string ) {
       app.readOnly = isReadOnly
     } else {
       app.resetDocument()
+      const document: any = app.document
+      document.size = {height: window.innerHeight, width: window.innerWidth};
     }
     app.persist()
 

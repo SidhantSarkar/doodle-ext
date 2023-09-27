@@ -109,14 +109,14 @@ export const getDoodleFromHash = async ({ queryKey }: { queryKey: getDoodleFromH
             const publicDoodles: doodleData[] = []
             if (resp.data.length <= 0 ) resolve({ myDoodles, sharedDoodles, publicDoodles })
             resp.data.forEach((doodle: any) => {
-                if (doodle.author.email === user.email) {
-                    myDoodles.push({
+                if (doodle.isPublic) {
+                    publicDoodles.push({
                         doodleId: doodle.id,
                         title: doodle.title,
                         author: doodle.author
                     })
-                } else if (doodle.isPublic) {
-                    publicDoodles.push({
+                } if (doodle.author.email === user.email) {
+                    myDoodles.push({
                         doodleId: doodle.id,
                         title: doodle.title,
                         author: doodle.author

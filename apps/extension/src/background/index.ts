@@ -81,8 +81,7 @@ const handleMessage = async (message: any) => {
       return makeRequest(`api/doodle/${message.data.doodleId}/author`, 'PATCH', message.data)
     } else if (message.action === 'GET_PERMISSIONS') {
       return makeRequest(`api/doodle/${message.data.doodleId}/permission`)
-    }  else if (message.action === 'ADD_PERMISSION') {
-      console.log('ADD_PERMISSION', message.data)
+    } else if (message.action === 'ADD_PERMISSION') {
       return makeRequest(`api/doodle/${message.data.doodleId}/permission`, 'POST', message.data)
     } else if (message.action === 'DELETE_PERMISSION') {
       return makeRequest(`api/doodle/${message.data.doodleId}/permission`, 'DELETE', message.data)

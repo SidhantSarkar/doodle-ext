@@ -26,7 +26,6 @@ export const updateSiteDetails = async () => {
 }
 
 export const scaleDocumentSize = () => {
-    console.log('scaleDocumentSize')
 
     const targetWidth = window.innerWidth
     const setWidth = useDoodleStore.getState().setWidth
@@ -38,12 +37,7 @@ export const scaleDocumentSize = () => {
     const currentWidth = (tlDrawApp.document as any).size.width
     if(targetWidth === currentWidth) return
 
-    console.log('targetWidth', targetWidth)
-    console.log('currentWidth', currentWidth)
-
     const delta = (targetWidth - currentWidth) / 2
-
-    console.log('delta', delta)
 
     tlDrawApp.getShapes().forEach((shape: any) => {
         shape.point = [shape.point[0] + delta, shape.point[1]]
